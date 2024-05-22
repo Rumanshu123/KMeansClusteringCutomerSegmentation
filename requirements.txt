@@ -1,5 +1,9 @@
-streamlit
+kneed
 pandas
+streamlit
 numpy
-scikit-learn
+plotly
+seaborn
 matplotlib
+scikit-learn
+
