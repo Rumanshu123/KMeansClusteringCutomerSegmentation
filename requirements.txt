@@ -1,8 +1,5 @@
-kneed
-pandas
 streamlit
+pandas
 numpy
-plotly
-seaborn
+scikit-learn
 matplotlib
-sklearn
