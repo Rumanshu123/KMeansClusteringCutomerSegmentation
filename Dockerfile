@@ -17,4 +17,4 @@ EXPOSE 8501
 ENV PORT=8501
 
 # Run the application
-CMD ["gunicorn", "--workers=4", "--bind=0.0.0.0:$PORT", "kmeans:app"]
+CMD ["gunicorn", "--workers=4", "--bind=0.0.0.0:$PORT", "Kmeans:app"]
