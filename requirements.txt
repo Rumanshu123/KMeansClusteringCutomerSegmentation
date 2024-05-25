@@ -1,11 +1,9 @@
 kneed
 pandas
-streamlit==1.34.0
 numpy
 plotly
 seaborn
 matplotlib
-scikit-learn
-gunicorn
-pickle-mixin
+scikit-learn==1.5.0
 Flask
+gunicorn

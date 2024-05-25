@@ -3,5 +3,5 @@ build:
     web: Dockerfile
 
 run:
-  web: gunicorn --workers=4 --bind 0.0.0.0:8501 kmeans:app
+  web: gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
 
