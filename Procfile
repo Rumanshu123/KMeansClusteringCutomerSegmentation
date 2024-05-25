@@ -1,1 +1,1 @@
-web: streamlit run kmeans.py
+web: gunicorn app:app
