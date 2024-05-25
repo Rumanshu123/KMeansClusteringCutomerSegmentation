@@ -13,5 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Make port 8501 available to the world outside this container
 EXPOSE 8501
 
-# Run Streamlit app
-CMD ["streamlit", "run", "kmeans.py", "--server.port=$PORT", "--server.address=0.0.0.0"]
+# Run gunicorn to serve the Flask app
+CMD ["gunicorn", "--workers=4", "--bind=0.0.0.0:8501", "kmeans:app"]
