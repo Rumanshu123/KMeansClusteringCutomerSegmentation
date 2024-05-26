@@ -2,33 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-                                  <title>KMeans Clustering App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>KMeans Clustering App</title>
 </head>
 <body>
-    <h1>KMeans Clustering App</h1>
-    <form action="/" method="post" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <label for="n_clusters">Number of clusters:</label>
-        <input type="number" name="n_clusters" value="2" min="2" max="10">
-        <button type="submit">Upload</button>
-    </form>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <ul>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
-    {% if data_preview %}
-        <h2>Data Preview</h2>
-        {{ data_preview | safe }}
-        <h3>Shape of dataset: {{ shape }}</h3>
-        <h3>Silhouette Score for {{ n_clusters }} clusters: {{ silhouette_avg }}</h3>
-        <img src="{{ img_url }}" alt="Cluster Plot">
-        <h3>Cluster Centers</h3>
-        {{ cluster_centers | safe }}
-    {% endif %}
+    <div class="container">
+        <h1>KMeans Clustering App</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <label for="n_clusters">Number of clusters:</label>
+            <input type="number" name="n_clusters" value="2" min="2" max="10">
+            <button type="submit">Upload</button>
+        </form>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% if data_preview %}
+            <h2>Data Preview</h2>
+            <div class="data-preview">{{ data_preview | safe }}</div>
+            <h3>Shape of dataset: {{ shape }}</h3>
+            <h3>Silhouette Score for {{ n_clusters }} clusters: {{ silhouette_avg }}</h3>
+            <img src="{{ img_url }}" alt="Cluster Plot">
+            <h3>Cluster Centers</h3>
+            <div class="cluster-centers">{{ cluster_centers | safe }}</div>
+        {% endif %}
+    </div>
 </body>
 </html>
